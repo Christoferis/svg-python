@@ -36,16 +36,16 @@ class group(element):
 
     #override since its a group object
     def _generate_tag(self):
-        tag = str("<" + self.tag + " ")
+        tag = f"<{self.tag} "
 
         for key in self.properties.keys():
-            tag += '"' + key + '"' + "=" + '"' + str(self.properties.get()) + '"' + " "
+            tag += f'"{key}"="{self.properties.get()}"'
 
         tag += ">"
 
         for element in self.elements:
-            tag += "\n\t" + element._generate_tag()
+            tag += f"\n\t{element._generate_tag()}"
         
-        return tag + "\n<" + self.tag + "/>"
+        return "{tag}\n<{self.tag}/>"
 
 

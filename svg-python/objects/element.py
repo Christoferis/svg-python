@@ -78,12 +78,12 @@ class base:
     (internal) generates a tag to give out to parser
     '''
     def _generate_tag(self):
-        tag = str("<" + self.tag + " ")
+        tag = f"<{self.tag} "
 
         for key in self.properties.keys():
-            tag += '"' + key + '"' + "=" + '"' + str(self.properties.get()) + '"' + " "
+            tag += f'"{key}"="{self.properties.get()}" '
 
-        return tag + "/>"
+        return f"{tag}/>"
 
 
 #a base class for all visual elements
